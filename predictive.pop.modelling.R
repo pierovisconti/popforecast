@@ -8,17 +8,16 @@ library(filzbach)
 
 # ##Figure1 ---------------------------------------------------------------
 forest=seq(1,0,-0.01)
-plot(1:101,100*(1-foresta)^1,type='l',lty=1, xlab='% Forest cover',ylab='% Carrying Capacity')
-lines(100*(1-foresta)^2,type='l',lty=6)
-lines(100*(1-foresta)^5,type='l',lty=5)
-lines(100*(1-foresta)^0.8,type='l',lty=4)
-lines(100*(1-foresta)^0.5,type='l',lty=3)
-lines(100*(1-foresta)^0.2,type='l',lty=2)
+plot(1:101,100*(1-forest)^1,type='l',lty=1, xlab='% Forest cover',ylab='% Carrying Capacity')
+lines(100*(1-forest)^2,type='l',lty=6)
+lines(100*(1-forest)^5,type='l',lty=5)
+lines(100*(1-forest)^0.8,type='l',lty=4)
+lines(100*(1-forest)^0.5,type='l',lty=3)
+lines(100*(1-forest)^0.2,type='l',lty=2)
 
 
 legend(0, 98,c(0.2,0.5,0.8,1,2,5),bty="n",lty=c(2,3,4,1,5,6))
 text(6,99,paste(expression(phi), " values"))
-setwd('C:/Users/Piero/Dropbox/Grants & Job applications/NERC2016')
 dev.copy(pdf,'Phi values carrying capacity.pdf')
 dev.off()
 
@@ -214,17 +213,14 @@ summary(parameters) # the median value is extremely close to the "real" value
 boxplot(parameters) # boxplot of posterior distribution of parameters
 points(1:4,c(real_a,theta,mu,sigma),col='red',pch=2,cex=2) # the actual paraemeters
 
-setwd('C:/Users/Piero/Dropbox/Grants & Job applications/NERC2016')
+
 dev.copy(pdf,'Real and estimated parameters values 20data-points.pdf')
 dev.off()
 
 
 
 
-####
-
-
-# Figure6 -----------------------------------------------------------------
+# Figures 5-6 -----------------------------------------------------------------
 library(filzbach)
 parameters2=matrix(nrow=0,ncol=4)
 
@@ -258,6 +254,5 @@ for (i in 1:500){
 axis(side=1);axis(side=2)
 points(1:20,pop,col='yellow',pch=19)
 title(xlab='years',ylab='population size')
-dev.copy(pdf,'Predicted and observed population trends 15data-points.pdf')
 dev.off()
 
