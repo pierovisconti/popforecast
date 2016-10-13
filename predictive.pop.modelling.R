@@ -48,6 +48,9 @@ f_var=function(k,No,a,t){
     } else {
       N[i]=N[i-1]+N[i-1]*a*(1-N[i-1]/k[i])
     }
+    if (N[i]<=0){
+      N[i:max(t)]=0; break
+    }
   }
   return(N)
 }
@@ -99,6 +102,9 @@ f_fix=function(k,t,No,a){
       N[i]=No+(No*a*(1-No/k))
     } else {
       N[i]=N[i-1]+N[i-1]*a*(1-N[i-1]/k)
+    }
+    if (N[i]<=0){
+      N[i:max(t)]=0; break
     }
   }
   return(N)
